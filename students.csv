@@ -1,0 +1,11 @@
+student_id,name,age,gender,course,score,attendance
+1,Alice,19,F,Math,78,92
+2,Bob,21,M,Physics,65,85
+3,Charlie,20,M,Math,88,95
+4,Diana,22,F,Chemistry,55,70
+5,Ethan,23,M,Physics,72,80
+6,Fiona,19,F,Math,91,98
+7,George,21,M,Chemistry,60,75
+8,Hannah,20,F,Physics,83,90
+9,Ian,22,M,Math,49,65
+10,Jane,19,F,Chemistry,76,88
