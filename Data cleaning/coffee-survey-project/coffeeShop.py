@@ -66,12 +66,20 @@ dairy_preferences = dairy.mean() * 100
 dairy_preferences = dairy_preferences.sort_values() # ascending=False)
 # print(dairy_preferences)
 
+
+#_____________________________
+# using a series to plot
+plt.barh(
+    dairy_preferences.index,
+    dairy_preferences
+   )
+plt.xlabel('Percent')
+plt.show()
+#_____________________________
+
 # changing the series into a 2D df using .reset_index()
 df = dairy_preferences.reset_index()
 df.columns = ['Dairy Type','Percentage']
-
-
-
 
 plt.barh(
     df['Dairy Type'],
