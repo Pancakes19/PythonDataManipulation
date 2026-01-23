@@ -15,7 +15,16 @@ df = pd.read_csv('first-day-of-week.csv')
 # finding unique values in a column
 # the first shows the possible diff values
 # and the second shows the number of unique values
-print(df['first_day'].unique())
-print(df['first_day'].nunique())
+# print(df['first_day'].unique())
+# print(df['first_day'].nunique())
+
+# filtering rows
+print(df.query('first_day == "mon"'))
+
+
+
+
+
+
 
 
