@@ -19,7 +19,19 @@ df = pd.read_csv('first-day-of-week.csv')
 # print(df['first_day'].nunique())
 
 # filtering rows
-print(df.query('first_day == "mon"'))
+# print(df.query('first_day == "mon"'))
+
+# counting rows with certain values
+# metric_df = df.query('units == "metric"')
+# print(metric_df)
+
+# ok trying the real way
+print(df['units'].value_counts())
+
+
+
+
+
 
 
 
