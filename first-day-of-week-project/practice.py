@@ -1,4 +1,4 @@
-# practice
+# practice data analytics stuff
 
 import pandas as pd
 
@@ -26,12 +26,14 @@ df = pd.read_csv('first-day-of-week.csv')
 # print(metric_df)
 
 # ok trying the real way
-print(df['units'].value_counts())
+# print(df['units'].value_counts())
 
+# trying to group data by firstday
+# day_groups = df.groupby('first_day').size()
+# print(day_groups)
 
-
-
-
+# finding the audacious country
+print(df.query('first_day == "fri"')['territory'])
 
 
 
