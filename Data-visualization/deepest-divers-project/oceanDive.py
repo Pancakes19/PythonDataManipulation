@@ -20,17 +20,18 @@ categories = divers['category'].value_counts()
 # print(categories)
 
 # finding the deepest diver in each cat
-max_depths = divers.groupby('category')['depth'].max()
+max_depth = divers.groupby('category')['depth'].max()
 # print(max_depths)
 
 # turning the series into a df with reset.index
-max_depths = max_depths.reset_index(name='max_depth')
+max_depth = max_depth.reset_index(name='max_depth')
 # print(max_depths)
 
 
 # ploting with the max categories
-plt.bar(max_depths['category'], max_depths['max_depth'])
-plt.ylabel('Maximum depth (meters)')
+max_depth = max_depth.sort_values('max_depth', ascending=False)
+plt.barh(max_depth['category'], max_depth['max_depth'])
+plt.xlabel('Maximum depth (meters)')
 plt.show()
 
 
