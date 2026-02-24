@@ -28,12 +28,22 @@ max_depth = max_depth.reset_index(name='max_depth')
 # print(max_depths)
 
 
+# ------------------------------------------
+# a function to hide spines and add faded lines
+def clean_bar_axes():
+    ax = plt.gca() # get current axis
+    ax.spines[['top','bottom','left','right']].set_visible(False)
+    ax.grid(axis='x', color='black', alpha=0.5)
+    ax.tick_params(axis='both', length=0)
+# -----------------------------------------
+
+
 # ploting with the max categories
-max_depth = max_depth.sort_values('max_depth', ascending=False)
+max_depth = max_depth.sort_values('max_depth')
 plt.barh(max_depth['category'], max_depth['max_depth'])
 plt.xlabel('Maximum depth (meters)')
+clean_bar_axes()
 plt.show()
-
 
 
 
