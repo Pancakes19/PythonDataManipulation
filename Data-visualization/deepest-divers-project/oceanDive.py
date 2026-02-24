@@ -39,8 +39,10 @@ def clean_bar_axes():
 
 
 # ploting with the max categories
+max_depth['color'] = 'C0'
+max_depth.loc['ref_0'] = ['submarine implosion', 730, 'C3']
 max_depth = max_depth.sort_values('max_depth')
-plt.barh(max_depth['category'], max_depth['max_depth'])
+plt.barh(max_depth['category'], max_depth['max_depth'], color = max_depth['color'])
 plt.xlabel('Maximum depth (meters)')
 clean_bar_axes()
 plt.show()
