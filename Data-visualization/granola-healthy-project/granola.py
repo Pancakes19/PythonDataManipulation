@@ -66,19 +66,64 @@ def square_the_plot():
     ax.set_aspect(1)
     ax.grid(True)
 
+# adding labels for food that public deems healthy
+def add_labels(df, x_col, y_col, label_col):
+    for (i, row) in df.iterrows():
+        x = row[x_col]
+        y = row[y_col]
+        offset_spacing = "  "
+        label = offset_spacing + row[label_col]
+        plt.text(x, y, label, va='center', ha='left')
 
 add_equality_line()
 square_the_plot()
+
+
+# adding a column for public minus experts to show diff in opinions
+
+df['public_minus_experts'] = df.eval('public - experts')
+df = df.sort_values(by='public_minus_experts', ascending=False)
+highest_disagreement = df.head()
+print(highest_disagreement)
+
+plt.scatter(df['public'], df['experts'], alpha=0.5)
+add_equality_line()
+square_the_plot()
+add_labels(highest_disagreement, 'public', 'experts', 'food')
 plt.show()
 
 
 
+#--------------------------------------------------
+#full code
+def format_plot():
+    plt.xlabel('Public (%)')
+    plt.ylabel('Experts (%)')
+    plt.title('Is food healthy?')
+    
+def add_equality_line():
+    x = [0, 50, 100]
+    y = [0, 50, 100]
+    plt.plot(x, y, color='black', alpha=0.5, linestyle='--')
 
+def square_the_plot():
+    plt.xlim(0, 100)
+    plt.ylim(0, 100)
+    ax = plt.gca()
+    ax.set_aspect(1)
 
+def add_labels(df, x_col, y_col, label_col):
+    for (i, row) in df.iterrows():
+        x = row[x_col]
+        y = row[y_col]
+        offset_spacing = "  "
+        label = offset_spacing + row[label_col]
+        plt.text(x, y, label, va='center', ha='left')
 
-
-
-
-
+plt.scatter(df['public'], df['experts'], alpha=0.5)
+format_plot()
+add_equality_line()
+square_the_plot()
+add_labels(highest_disagreement, 'public', 'experts', 'food')
 
 
