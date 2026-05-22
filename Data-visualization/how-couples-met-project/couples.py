@@ -27,6 +27,15 @@ back_columns = [
     ]
 back_colors = ['C0','C1','C2','C4','C5','C6']
 
+# a function to add labels to columns
+def add_end_labels(df, x, column_names, alpha):
+    for column_name in column_names:
+        y = df[column_name].iloc[-1]
+        offset_spacing = ""
+        label = offset_spacing + column_name
+        plt.text(x, y, label, va="center", alpha=alpha)
+
+
 df.plot(y=back_columns, color=back_colors, alpha=0.5)
 plt.plot(df.index, df[focus_column], color= focus_color, linewidth=5)
 plt.show()
